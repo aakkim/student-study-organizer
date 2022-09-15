@@ -1,0 +1,41 @@
+{% extends '../base.html' %} 
+{% load static %} 
+{% block content %}
+
+<section class='text-center container mb-5'>
+    <h2>Search Books</h2>
+    <p>Browse and search topics for study or leisure</p><b></b>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-outline-dark" type="submit" value="Submit">
+    </form><br>
+    {% for result in results %}
+    <a href="{{result.preview}}" target="_blank">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="img-fluid" src="{{result.thumbnail}}" alt="">
+                    </div>
+                    <div class="col-md-9">
+                        <h3 class="p-0 m-0">{{result.title}}</h3>
+                        <b>
+                            <h5 class="p-0 m-0"><u>{{result.author}}</u></h5>
+                            <h6 class="p-0 m-0 text-center">Pages: {{result.count}}</h6>
+                            <h6 class="p-0 m-0 text-center">Rating: {{result.rating}}</h6>
+                        </b>
+                        {% if result.description %}
+                            <h6 class="p-2 m-3">{{result.description}}</h6>
+                        {% endif %}
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    <br>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends '../base.html' %} 
+{% load static %} 
+{% block content %}
+<section class='text-center container mb-5'>
+    <h2>Search Youtube Videos</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-outline-dark" type="submit" value="Submit">
+    </form><br>
+    {% for result in results %}
+    <a href="{{result.link}}" target="_blank">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img class="img-fluid" src="{{result.thumbnail}}" alt="">
+
+                    </div>
+                    <div class="col-md-7">
+                        <h3 class="p-0 m-0"><strong>{{result.title}}</strong></h3>
+                        <b>
+                            <h5 class="p-0 m-0">Channel: <u>{{result.channel}}</u></h5>
+                        </b>
+                        <h6 class="p-0 m-1">Description: {{result.description}}</h6>
+                        <b>
+                            <h6 class="ml-0 mt-3">Duration: {{result.duration}}</h6>
+                            <h6 class="ml-0 mt-1">Views: {{result.views}}</h6>
+                            <h6 class="ml-0 mt-1">Published: {{result.published}}</h6>
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    <br>
+</section>
+
+{% endblock content %}

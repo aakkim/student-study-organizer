@@ -1,0 +1,135 @@
+{% extends './base.html' %} 
+{% load static %} 
+{% block content %}
+
+<h1 class="text-center"><strong>Welcome 
+  {% if user.is_authenticated %}
+  <span class="text-capitalize">{{request.user}}</span>
+  {% else %}
+  Stranger
+  {% endif %}
+</strong></h1>
+<section class="container text-center pb-5">
+  <hr> <br>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{% url 'notes' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/notes.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>NOTES</strong> 
+            </h5>
+            Create notes for each lesson
+            Delete when no longer needed
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="{% url 'homework' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/homework.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>HOMEWORK</strong> 
+            </h5>
+            Organize your homeworks
+            Assignments prioritized by their due date
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{% url 'youtube' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/youtube.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>YOUTUBE</strong> 
+            </h5>
+            Search Youtube videos
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{% url 'todo' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/todo.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>TO DO</strong> 
+            </h5>
+            Create a To-do list
+            Delete items in the list when finished
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="row">
+    <div class="col-md-3 ">
+      <a href="{% url 'books' %}">
+        <div class="card mt-20">
+          <img class="card-img-top" src="{% static 'images/books.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>BOOKS</strong> 
+            </h5>
+            Browse books for your studies
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+
+    <div class="col-md-3">
+      <a href="{% url 'dictionary' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/dictionary.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>DICTIONARY</strong> 
+            </h5>
+            Search dictionary to help with vocabulary you are having trouble on
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{% url 'wiki' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/wiki.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>WIKIPEDIA</strong> 
+            </h5>
+            Search Wikipedia to further assist in your studies
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-3">
+      <a href="{% url 'conversion' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/conversion.png' %}" alt="image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              <strong>CONVERSION</strong> 
+            </h5>
+            Use the conversion table for mass or length measurements
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+</section>
+{% endblock content %}
